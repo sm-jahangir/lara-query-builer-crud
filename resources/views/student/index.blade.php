@@ -38,8 +38,12 @@
                             <td>{{$data->subject}}</td>
                             <td>{{$data->course_time}}</td>
                             <td>
-                                <a name="" id="" class="btn btn-primary" href="#" role="button">Edit</a>
-                                <a name="" id="" class="btn btn-danger" href="#" role="button">Delete</a>
+                                <a name="" id="" class="btn btn-primary" href="{{route('studnet.edit',$data->id)}}" role="button">Edit</a>
+                                <a onclick="event.preventDefault(); document.getElementById('delete-form-{{$data->id}}').submit();" class="btn btn-danger" role="button">Delete</a>
+                                <form id="delete-form-{{$data->id}}" action="{{url('student'.'/'.$data->id)}}" style="display: none" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
                             </td>
                         </tr>
                     @endforeach
