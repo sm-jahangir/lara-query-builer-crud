@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/student');
 });
+Route::view('student', 'student/index');
+Route::view('student/create', 'student/create');
+Route::view('student/edit', 'student/edit');
