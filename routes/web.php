@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/student');
 });
-Route::view('student', 'student/index');
-Route::view('student/create', 'student/create');
-Route::view('student/edit', 'student/edit');
+Route::get('/student', [StudentController::class, 'index'])->name('student.index');
+Route::get('/student/create', [StudentController::class, 'create'])->name('student.create');
+Route::post('/student', [StudentController::class, 'store'])->name('student.store');

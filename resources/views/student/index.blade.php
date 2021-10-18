@@ -10,7 +10,7 @@
                     <strong>Student List</strong>
                 </div>
                 <div class="col">
-                    <a name="" id="" class="btn btn-primary float-right" href="#" role="button">Add New Student</a>
+                    <a name="" id="" class="btn btn-primary float-right" href="{{route('student.create')}}" role="button">Add New Student</a>
                 </div>
             </div>
         </div>
@@ -29,18 +29,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Jahangir Alam</td>
-                        <td>samraatjahangir@gmail.com</td>
-                        <td>Honours 3rd Year</td>
-                        <td>Physics</td>
-                        <td>4 Years</td>
-                        <td>
-                            <a name="" id="" class="btn btn-primary" href="#" role="button">Edit</a>
-                            <a name="" id="" class="btn btn-danger" href="#" role="button">Delete</a>
-                        </td>
-                    </tr>
+                    @foreach ($students as $data)
+                        <tr>
+                            <th scope="row">{{$data->id}}</th>
+                            <td>{{$data->name}}</td>
+                            <td>{{$data->email}}</td>
+                            <td>{{$data->class}}</td>
+                            <td>{{$data->subject}}</td>
+                            <td>{{$data->course_time}}</td>
+                            <td>
+                                <a name="" id="" class="btn btn-primary" href="#" role="button">Edit</a>
+                                <a name="" id="" class="btn btn-danger" href="#" role="button">Delete</a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

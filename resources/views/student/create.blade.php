@@ -13,7 +13,8 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="" method="post">
+            <form action="{{route('student.store')}}" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="form-group">
                     <label for="">Name</label>
                     <input type="text" class="form-control" name="name" id="name" placeholder="Enter Your Name">
